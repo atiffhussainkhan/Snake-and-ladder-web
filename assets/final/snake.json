@@ -1,0 +1,29 @@
+{
+  "head": [
+    192.08,
+    648.18
+  ],
+  "tail": [
+    2666.98,
+    511.97
+  ],
+  "head_thickness_px": 308.3,
+  "tail_thickness_px": 167.8,
+  "body_thickness_px": 822.1,
+  "head_tail_span_px": 2478.6,
+  "axis_angle_deg": -3.15,
+  "mask_pixels": 33626,
+  "src": "assets/raw/snake_A.jpg",
+  "width": 2882,
+  "height": 809,
+  "bbox": [
+    188,
+    254,
+    3070,
+    1063
+  ],
+  "trimmed_size": [
+    2882,
+    809
+  ]
+}

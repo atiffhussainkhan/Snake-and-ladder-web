@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0b0e13" />
+<meta name="description" content="Snake and Ladder with photoreal snake skin, 1-4 player tournaments." />
+<title>Snake &amp; Ladder — Real Skin</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/final/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="assets/final/favicon-192.png" />
+<link rel="apple-touch-icon" href="assets/final/favicon-180.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-title" content="Snake &amp; Ladder" />
+<link rel="stylesheet" href="src/style.css" />
+</head>
+<body>
+<div class="app">
+
+  <!-- ======================= FIRST PAGE / LOBBY ======================= -->
+  <section class="screen screen-lobby is-active" id="screenLobby">
+    <div class="lobby-card">
+      <div class="lobby-head">
+        <span class="brand-mark lg"></span>
+        <div>
+          <h1>Snake &amp; Ladder</h1>
+          <p class="sub">Pick your players, pick the tournament length, then play.</p>
+        </div>
+      </div>
+
+      <h2 class="lobby-label">Players <em id="playerCount">1 selected</em></h2>
+      <div class="picker players-picker" id="playerPicker"></div>
+      <p class="lobby-hint">Tap a portrait to add or remove that player. Minimum 1, maximum 4.</p>
+
+      <h2 class="lobby-label">Games in tournament</h2>
+      <div class="picker games-picker" id="gamePicker"></div>
+      <p class="lobby-hint" id="gamesHint">1 game &mdash; single match.</p>
+
+      <button class="btn-start" id="btnStart">Start tournament</button>
+      <p class="lobby-foot">Head sits on the bite square, tail on the landing square.</p>
+    </div>
+  </section>
+
+  <!-- ============================= GAME ============================= -->
+  <section class="screen screen-game" id="screenGame">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark"></span>
+        <div>
+          <h1>Snake &amp; Ladder</h1>
+          <p class="sub" id="gameCounter">Game 1 of 1</p>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <div class="seg" role="group" aria-label="Snake rendering mode">
+          <button class="seg-btn is-active" data-mode="skin">Real Skin</button>
+          <button class="seg-btn" data-mode="photo">Photo Coil</button>
+        </div>
+        <button class="btn-ghost" id="btnQuit">Quit</button>
+      </div>
+    </header>
+
+    <main class="stage">
+      <section class="board-wrap">
+        <div class="board-frame">
+          <canvas id="board" width="1240" height="1240" aria-label="Snake and ladder board"></canvas>
+          <div id="toast" class="toast" hidden></div>
+          <div id="interstitial" class="interstitial" hidden>
+            <div class="inter-card">
+              <h3 id="interTitle">Game 2 of 5</h3>
+              <p id="interSub">Get ready&hellip;</p>
+            </div>
+          </div>
+        </div>
+        <p class="legend">
+          <span class="dot dot-bite"></span> head = bite square
+          <span class="dot dot-tail"></span> tail = landing square
+        </p>
+      </section>
+
+      <aside class="panel">
+        <div class="dice-card">
+          <div class="die-wrap">
+            <img class="die-img" id="dieImg" alt="" width="96" height="96" />
+          </div>
+          <button class="btn-roll" id="btnRoll">Roll dice</button>
+          <p class="turn-line" id="turnLine">Player 1 to roll</p>
+        </div>
+
+        <div class="players" id="players"></div>
+        <div class="players scorecard" id="scorecard"></div>
+
+        <div class="log-card">
+          <h2>Move log</h2>
+          <ol class="log" id="log"></ol>
+        </div>
+
+        <div class="credit">
+          <h2>Asset</h2>
+          <p>
+            Skin and head are cut from one AI-generated photoreal snake, background
+            removed with a real alpha matte and decontaminated so no white fringe
+            survives. The head and tail anchors were measured automatically from the
+            alpha mask (principal-axis PCA) rather than hand-placed.
+          </p>
+        </div>
+      </aside>
+    </main>
+  </section>
+
+  <!-- =========================== RESULTS =========================== -->
+  <section class="screen screen-results" id="screenResults">
+    <div class="lobby-card results-card">
+      <h1 class="results-title" id="resultsTitle">Tournament complete</h1>
+      <div class="winner" id="winnerBlock">
+        <img class="winner-face" id="winnerFace" alt="" width="128" height="128" />
+        <div>
+          <p class="winner-kicker" id="winnerKicker">Winner</p>
+          <h2 id="winnerName">Player 1</h2>
+          <p class="winner-sub" id="winnerSub"></p>
+        </div>
+      </div>
+      <table class="standings" id="standings"></table>
+      <button class="btn-start" id="btnBack">Back to main page</button>
+    </div>
+  </section>
+
+</div>
+<script src="src/game.js"></script>
+</body>
+</html>

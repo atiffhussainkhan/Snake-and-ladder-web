@@ -1,0 +1,10 @@
+# dev-server artefacts — never part of the deployed site
+tools/devserver.log
+tools/devserver.pid
+
+# generated during stress runs (tools/make_stress.py); regenerated on demand
+/stress/
+/index.stress.html
+
+# OS noise
+.DS_Store
